@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kedai Mama Anjang</title>
+    <link rel="icon" type="image/png" href="/img/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="/style/style.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="app/app.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar" x-data>
+      <a href="#" class="navbar-logo">KedaiMama<span>Anjang</span></a>
+      <div class="navbar-nav">
+        <a href="#">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <main class="content">
+        <h1>Selamat Datang Di <span>KedaiMamaAnjang</span></h1>
+        <p>
+          Tempat makanan dengan sejuta cita rasa yang akan menggugah selera
+          makanan mu
+        </p>
+        <!-- <a href="#" class="cta">Pesan Sekarang</a> -->
+      </main>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2><span>Tentang</span> Kami</h2>
+      <div class="row">
+        <div class="about-img">
+          <img src="img/about-img.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Kenapa Harus Makan Disini?</h3>
+          <p>
+            Di Kedai Mama Anjang, kami menyajikan lebih dari sekadar makanan,
+            kami akan memberikan sebuah perjalanan rasa yang akan mengingatkan
+            pada kenangan manis di rumah. Dengan setiap suapan, Anda akan
+            merasakan kehangatan dan kelembutan cita rasa yang dibuat dengan
+            bumbu-bumbu tradisional yang dipilih dengan cermat dan bahan-bahan
+            segar terbaik.
+          </p>
+          <p>
+            Dari hidangan klasik hingga kreasi khas, kami mengundang Anda untuk
+            merasakan keanekaragaman masakan Indonesia yang autentik. Dengan
+            harga yang terjangkau dan layanan yang ramah, Kedai Mama Anjang
+            adalah tempat ideal untuk memuaskan hasrat kuliner Anda. Jadikan
+            setiap kunjungan Anda sebagai pengalaman yang tak terlupakan, dan
+            biarkan kami mengisi setiap hidangan dengan cinta dan dedikasi yang
+            kami miliki.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu" x-data="menu">
+      <h2><span>Menu</span> Kami</h2>
+      <p>
+        Kami memiliki beragam menu makanan yang menarik dan dengan harga yang
+        nyaman dikantong, silahkan kalian pilih menu yang diinginkan.
+      </p>
+      <div class="row">
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="menu-card">
+            <img
+              :src="`img/menu/${item.img}`"
+              :alt="item.name"
+              class="menu-card-img"
+            />
+            <h3 x-text="item.name" class="menu-card-title"></h3>
+            <span x-text="item.desc" class="menu-card-desc"></span>
+            <p x-text="rupiah(item.price)" class="menu-card-price"></p>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="kontak">
+      <h2><span>Kontak</span> Kami</h2>
+      <p>
+        Silahkan hubungi kami dengan mengisi form dibawah ini untuk bertanya
+        mengenai informasi lebih lanjut
+      </p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0342050907198!2d106.99088487316575!3d-6.126099460063643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a21651defcdef%3A0x9cfc8f935efc383c!2sPerum%20Bali%20Indah!5e0!3m2!1sid!2sid!4v1707220013180!5m2!1sid!2sid"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+        <form action="">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" name="name" id="name" placeholder="Nama Kamu" />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Kamu"
+            />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input
+              type="text"
+              name="nohp"
+              id="nohp"
+              placeholder="Nomor Handhone"
+            />
+          </div>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Masukan Pesan"
+          ></textarea>
+          <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="social">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+      </div>
+
+      <div class="links">
+        <a href="#">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+
+      <div class="credit">
+        <p>Created by <a href="">Anjang Pangestu S</a>.| &copy; 2024.</p>
+      </div>
+    </footer>
+
+    <!-- Icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- Js -->
+    <script src="/js/script.js"></script>
+  </body>
+</html>
